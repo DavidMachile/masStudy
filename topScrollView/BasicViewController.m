@@ -39,11 +39,11 @@
     
     CGFloat padding = 10;
     [greenView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(padding);
-        make.right.mas_equalTo(redView.mas_left).offset(-padding);
-        make.bottom.mas_equalTo(blueView.mas_top).offset(-padding);
-        make.height.mas_equalTo(@[redView, blueView]);
-        make.width.mas_equalTo(redView);
+//        make.left.mas_equalTo(padding);
+//        make.right.mas_equalTo(self.view).offset(-padding);
+        make.center.mas_equalTo(self.view);
+        make.height.mas_equalTo(300);
+        make.width.mas_equalTo(300);
     }];
     
     [redView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -53,10 +53,7 @@
     }];
     
     [blueView mas_makeConstraints:^(MASConstraintMaker *make) {
-        //    make.height.mas_equalTo(greenView);
-        make.bottom.mas_equalTo(-padding);
-        make.left.mas_equalTo(padding);
-        make.right.mas_equalTo(-padding);
+        make.edges.mas_equalTo(greenView).mas_offset(UIEdgeInsetsMake(10, 10, 10, 10));
     }];
     // Do any additional setup after loading the view.
 }
